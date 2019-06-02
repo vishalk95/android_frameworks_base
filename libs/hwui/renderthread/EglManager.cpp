@@ -192,7 +192,7 @@ void EglManager::loadConfigs() {
 
     EGLint numConfigs = 1;
     if (!eglChooseConfig(mEglDisplay, attribs, &mEglConfig, numConfigs, &numConfigs)
-            || numConfigs != 1) {
+            || numConfigs < 1) {
         if (mSwapBehavior == SwapBehavior::Preserved) {
             // Try again without dirty regions enabled
             ALOGW("Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...");
